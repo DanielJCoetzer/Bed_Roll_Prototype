@@ -9,6 +9,8 @@ TagManager:
   - Light
   - Monster
   - player
+  - Bed
+  - Hello
   layers:
   - Default
   - TransparentFX

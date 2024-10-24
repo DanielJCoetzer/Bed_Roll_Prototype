@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,11 +14,18 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
     private GameObject furniture = null;
     private IEnumerator MoveCoroutine;
+    private Vector3 startPos;
+    private GameObject lightSwitch;
+    public TMP_Text text;
+
 
     private float count = 6f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        text.enabled = false;
+        lightSwitch = GameObject.FindGameObjectWithTag("player");
+        startPos = transform.position;
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
     }
@@ -85,5 +95,17 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = endPosition;
         isMoving = false;
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Bed")) {
+            if (lightSwitch.GetComponent<LightSwitch>().lightOn == false) {
+                text.enabled = true;
+            }
+        }
+        if (other.CompareTag("Monster")) {
+            transform.position = startPos;
+        }
+        
     }
 }

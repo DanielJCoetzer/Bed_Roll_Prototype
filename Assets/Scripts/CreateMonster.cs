@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class CreateMonster : MonoBehaviour
 {
-    private LightSwitch lightSwitch;
+    private GameObject lightSwitch;
+    public GameObject monster;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        this.gameObject.SetActive(false);
-        lightSwitch = GameObject.FindGameObjectWithTag("player").GetComponent<LightSwitch>();
+        //this.gameObject.SetActive(false);
+        lightSwitch = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectWithTag("player").GetComponent<LightSwitch>() == false) {
-            Debug.Log("Hello");
-            this.gameObject.SetActive(true);
+        if (lightSwitch.GetComponent<LightSwitch>().lightOn == false) {
+            monster.SetActive(true);
         }
         else {
-            this.gameObject.SetActive(false);
+            monster.SetActive(false);
         }
     }
 }
