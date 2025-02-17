@@ -1,7 +1,7 @@
 
-# **What is it?**
-
 <img width="1087" alt="Screenshot 2025-02-06 at 22 57 44" src="https://github.com/user-attachments/assets/f173eb2a-0490-41d8-b443-35b567a8b37f" />
+
+# **What is it?**
 
 Get to bed is a concept puzzle prototype where the player’s goal is to get to bed with the lights off and avoid monsters hiding under the furniture on the way. While the lights are on, the player can move the furniture around to create a path for the player to get to bed when they turn off the lights. 
 
